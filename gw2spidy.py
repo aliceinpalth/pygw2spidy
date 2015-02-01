@@ -18,11 +18,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import urllib2
+import urllib.request
 try:
     import json
 except ImportError:
     import simplejson as json
+
 
 class Gw2Spidy:
     """This utility class allows easy access to the GW2Spidy data."""
@@ -59,27 +60,27 @@ class Gw2Spidy:
         return Gw2Spidy._request('item', str(itemId))['result']
 
     @staticmethod
-    def getItemBuyListings(itemId, allPages = False):
+    def getItemBuyListings(itemId, allPages=False):
         """Get a list of all buy offers for a certain item."""
         return Gw2Spidy._paginatedRequest(allPages, 'listings', str(itemId), 'buy')
 
     @staticmethod
-    def getItemSellListings(itemId, allPages = False):
+    def getItemSellListings(itemId, allPages=False):
         """Get a list of all sell offers for a certain item."""
         return Gw2Spidy._paginatedRequest(allPages, 'listings', str(itemId), 'sell')
 
     @staticmethod
-    def searchItems(name, allPages = False):
+    def searchItems(name, allPages=False):
         """Search items by name. Might be slow, not recommended."""
         return Gw2Spidy._paginatedRequest(allPages, 'item-search', name)
 
     @staticmethod
-    def getAllRecipesList(allPages = False):
+    def getAllRecipesList(allPages=False):
         """Get a list of all crafting recipes."""
         return Gw2Spidy._paginatedRequest(allPages, 'recipes', 'all')
 
     @staticmethod
-    def getRecipesOfDiscipline(disciplineId, allPages = False):
+    def getRecipesOfDiscipline(disciplineId, allPages=False):
         """Get a list of all crafting recipes for a certain discipline."""
         return Gw2Spidy._paginatedRequest(allPages, 'recipes', str(disciplineId))
 
@@ -112,10 +113,10 @@ class Gw2Spidy:
     def _request(*args):
         """Makes a request on the GW2Spidy API."""
         url = 'http://www.gw2spidy.com/api/v0.9/json/' + '/'.join(args)
-	r = urllib2.Request(url, headers=Gw2Spidy.headers)
-	if 'Cookie' not in Gw2Spidy.headers:
-	    resp = urllib2.urlopen(r)
-	    if 'set-cookie' in resp.headers:
-		Gw2Spidy.headers['Cookie'] = resp.headers['set-cookie'].split(';', 1)[0]
-	    return json.loads(resp.read())
-        return json.loads(urllib2.urlopen(r).read())
+        r = urllib.request(url, headers=Gw2Spidy.headers)
+        if 'Cookie' not in Gw2Spidy.headers:
+            resp = urllib.reqest.urlopen(r)
+            if 'set-cookie' in resp.headers:
+                Gw2Spidy.headers['Cookie'] = resp.headers['set-cookie'].split(';', 1)[0]
+            return json.loads(resp.read())
+        return json.loads(urllib.request.urlopen(r).read())
