@@ -24,7 +24,6 @@ try:
 except ImportError:
     import simplejson as json
 
-
 class Gw2Spidy:
     """This utility class allows easy access to the GW2Spidy data."""
     headers = {'User-Agent': 'gw2spidy.py'}
@@ -115,7 +114,7 @@ class Gw2Spidy:
         url = 'http://www.gw2spidy.com/api/v0.9/json/' + '/'.join(args)
         r = urllib.request(url, headers=Gw2Spidy.headers)
         if 'Cookie' not in Gw2Spidy.headers:
-            resp = urllib.reqest.urlopen(r)
+            resp = urllib.request.urlopen(r)
             if 'set-cookie' in resp.headers:
                 Gw2Spidy.headers['Cookie'] = resp.headers['set-cookie'].split(';', 1)[0]
             return json.loads(resp.read())
