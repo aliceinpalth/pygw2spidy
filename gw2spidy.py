@@ -112,7 +112,7 @@ class Gw2Spidy:
     def _request(*args):
         """Makes a request on the GW2Spidy API."""
         url = 'http://www.gw2spidy.com/api/v0.9/json/' + '/'.join(args)
-        r = urllib.request(url, headers=Gw2Spidy.headers)
+        r = urllib.request.Request(url, headers=Gw2Spidy.headers)
         if 'Cookie' not in Gw2Spidy.headers:
             resp = urllib.request.urlopen(r)
             if 'set-cookie' in resp.headers:
