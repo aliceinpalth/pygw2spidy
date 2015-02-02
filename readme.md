@@ -1,7 +1,7 @@
 Python (3.X) Bindings to the Guild Wars 2 Spidy API
 =============================================
 
-This small Python module provides easy-to-use bindings to the Guild Wars 2 Spidy API. This fork was created to update the original repository by Tynril to use Python 3 rather than Python 2.
+This small Python module provides easy-to-use bindings to the Guild Wars 2 Spidy API. Originally created by Tynril for Python 2.X, this fork was created to update the original repository to use Python 3.X.
 
 What is Guild Wars 2 Spidy?
 ---------------------------
