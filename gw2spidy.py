@@ -115,7 +115,12 @@ class Gw2Spidy:
         r = urllib.request.Request(url, headers=Gw2Spidy.headers)
         if 'Cookie' not in Gw2Spidy.headers:
             resp = urllib.request.urlopen(r)
+            readresp = resp.read()
+            decodedresp = readresp.decode("utf-8")
             if 'set-cookie' in resp.headers:
                 Gw2Spidy.headers['Cookie'] = resp.headers['set-cookie'].split(';', 1)[0]
-            return json.loads(resp.read())
-        return json.loads(urllib.request.urlopen(r).read())
+            return json.loads(decodedresp)
+        rawreply = urllib.request.urlopen(url).read()
+        decodedreply = rawreply.decode("utf-8")
+        reply = json.loads(decodedreply)
+        return reply
