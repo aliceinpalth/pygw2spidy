@@ -19,7 +19,7 @@ A basic test of the API would be to run a simple file with the following lines o
     
     print(str(Gw2Spidy.getItemData(19721)))
     
-The number '19721' is the item ID for [Globs of Ectoplasm](http://www.gw2spidy.com/item/19721). You can find an item's ID by navigating to its GW2Spidy page, and then looking in the URL.
+The number '19721' is the item ID for [Globs of Ectoplasm](http://www.gw2spidy.com/item/19721). You can find an item's ID by navigating to its GW2Spidy page, and then looking in the URL. This would return all information from GW2Spidy regarding Globs of Ectoplasm: lowest sell order / highest buy order / rarity / icon image location, and more!
     
 
 License
