@@ -13,6 +13,15 @@ How to use it?
 
 Simply put the `gw2spidy.py` module somewhere in your project, and import it with `from gw2spidy import Gw2Spidy`. You can then use the static methods of the `Gw2Spidy` class.
 
+A basic test of the API would be to run a simple file with the following lines of code:
+
+    from gw2spidy import Gw2Spidy
+    
+    print(str(Gw2Spidy.getItemData(19721)))
+    
+The number '19721' is the item ID for [Globs of Ectoplasm](http://www.gw2spidy.com/item/19721). You can find an item's ID by navigating to its GW2Spidy page, and then looking in the URL.
+    
+
 License
 -------
 
